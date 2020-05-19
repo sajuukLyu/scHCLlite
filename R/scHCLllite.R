@@ -13,7 +13,7 @@
 scHCLlite <- function(scdata, num = 3){
 
   tst.expr <- scdata
-  used.gene <- intersect(rownames(ref.expr), rownames(ncov.int))
+  used.gene <- intersect(rownames(ref.expr), rownames(tst.expr))
   tst.expr <- tst.expr[used.gene, ]
 
   message(length(used.gene), " genes used, calculating correlation coefficient...")

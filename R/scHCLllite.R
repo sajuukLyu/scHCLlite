@@ -4,12 +4,13 @@
 #' simplized version of origianl scHCL function.
 #'
 #' @param scdata matrix-like data input, log-normalized data recommended.
-#' @param num the number of the most similiar cell types returned, default 3.
+#' @param num the number of the most similar cell types returned, default 3.
 #'
 #' @return a list containing cors_matrix, top_cors, scHCL and scHCL_similarity.
-#' @export
+#'
 #' @importFrom reshape2 melt
 #' @import dplyr
+#' @export
 scHCLlite <- function(scdata, num = 3){
 
   tst.expr <- scdata
@@ -26,7 +27,7 @@ scHCLlite <- function(scdata, num = 3){
 
   message(length(cors.index), " types expected, extracting top ", num, " results...")
   cors_in = cors[cors.index, ]
-  cors_out = reshape2::melt(cors_in)[c(2, 1, 3)]
+  cors_out = melt(cors_in)[c(2, 1, 3)]
   colnames(cors_out)<- c("Cell", "Type", "Score")
   cors_out <- as.data.frame(cors_out %>% group_by(Cell) %>% top_n(n = num, wt = Score))
 

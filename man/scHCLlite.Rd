@@ -9,7 +9,7 @@ scHCLlite(scdata, num = 3)
 \arguments{
 \item{scdata}{matrix-like data input, log-normalized data recommended.}
 
-\item{num}{the number of the most similiar cell types returned, default 3.}
+\item{num}{the number of the most similar cell types returned, default 3.}
 }
 \value{
 a list containing cors_matrix, top_cors, scHCL and scHCL_similarity.

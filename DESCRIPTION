@@ -1,15 +1,19 @@
 Package: scHCLlite
 Type: Package
 Title: Human Cell Landscape
-Version: 0.1.0
-Date: 2020-5-19
-Author: Yulin Lyu
+Version: 0.2.0
+Date: 2024-10-29
+Authors@R: 
+    person("Yulin", "Lyu", , "lvyulin@pumch.cn", role = c("aut", "cre"))
 Maintainer: Yulin Lyu <lvyl@pku.edu.cn>
-Description: A simplized version of R package scHCL, faster.
+Description: A simplized version of R package scHCL, faster. Reference data generated from original article.
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
 Imports: 
     dplyr,
+    Matrix,
     reshape2
-RoxygenNote: 6.1.1
+RoxygenNote: 7.3.2
+Depends: 
+    R (>= 2.10)

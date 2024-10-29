@@ -5,20 +5,23 @@
 #'
 #' @param scdata matrix-like data input, log-normalized data recommended.
 #' @param num the number of the most similar cell types returned, default 3.
+#' @param ref.expr matrix-like reference, log-normalized data, default scHCL.
 #'
 #' @return a list containing cors_matrix, top_cors, scHCL and scHCL_similarity.
 #'
+#' @importFrom stats cor
 #' @importFrom reshape2 melt
 #' @import dplyr
+#' @import Matrix
 #' @export
-scHCLlite <- function(scdata, num = 3){
+scHCLlite <- function(scdata, num = 3, ref.expr = ref.expr){
 
   tst.expr <- scdata
   used.gene <- intersect(rownames(ref.expr), rownames(tst.expr))
   tst.expr <- tst.expr[used.gene, ]
 
   message(length(used.gene), " genes used, calculating correlation coefficient...")
-  cors <- cor(log2(ref.expr[used.gene, ] + 1), as.matrix(tst.expr), method = "pearson")
+  cors <- cor(as.matrix(ref.expr[used.gene, ]), as.matrix(tst.expr), method = "pearson")
 
   cors.index <- apply(cors, 2, function(x){order(x, decreasing = T)[1:num]})
   cors.index <- as.integer(cors.index) %>% unique() %>% sort()

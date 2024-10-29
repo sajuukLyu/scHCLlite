@@ -4,12 +4,14 @@
 \alias{scHCLlite}
 \title{Human Cell Landscape mapping}
 \usage{
-scHCLlite(scdata, num = 3)
+scHCLlite(scdata, num = 3, ref.expr = ref.expr)
 }
 \arguments{
 \item{scdata}{matrix-like data input, log-normalized data recommended.}
 
 \item{num}{the number of the most similar cell types returned, default 3.}
+
+\item{ref.expr}{matrix-like reference, log-normalized data, default scHCL.}
 }
 \value{
 a list containing cors_matrix, top_cors, scHCL and scHCL_similarity.

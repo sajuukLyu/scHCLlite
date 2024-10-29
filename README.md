@@ -40,7 +40,7 @@ Like scHCL, scHCLlite requires parameter `scdata`,  the query dataset, normalize
 > dim(hcl_test)
 # [1] 13714  2638
 
-> hcl_result <- scHCLlite(scdata = hcl_lung, num = 3, ref.expr = ref.expr)
+> hcl_result <- scHCLlite(scdata = hcl_test, num = 3, ref.expr = ref.expr)
 # 2419 genes used, calculating correlation coefficient...
 # 80 types expected, extracting top 3 results...
 ```
@@ -82,7 +82,7 @@ scHCLlite runs more than 20 times faster than scHCL with the same input dataset 
 > system.time(scHCLlite(scdata = hcl_test, num = 3, ref.expr = ref.expr))
 #  user    system  elapsed 
 #  3.55   0.03   8.06
-> system.time(scHCL(scdata = hcl_test, numbers_plot = 3))
+> system.time(scHCL::scHCL(scdata = hcl_test, numbers_plot = 3))
 #  user    system  elapsed 
 #  60.35   29.15   207.29
 ```
